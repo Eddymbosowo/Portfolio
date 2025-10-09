@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ediomo Mbosowo - IAM Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark blue-gray background */
+            color: #E5E7EB; /* Light gray text */
+        }
+        .section {
+            scroll-margin-top: 64px; /* Offset for fixed header */
+        }
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5); /* Semi-transparent dark card */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+        }
+        .brand-gradient {
+            background: linear-gradient(to right, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Spinner for loading state */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3B82F6;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Modal styles */
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="#" class="text-2xl font-bold text-white">Ediomo Mbosowo</a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-300 hover:text-white transition duration-300">About</a>
+                    <a href="#experience" class="text-gray-300 hover:text-white transition duration-300">Experience</a>
+                    <a href="#education" class="text-gray-300 hover:text-white transition duration-300">Education</a>
+                    <a href="#ai-joke-generator" class="text-gray-300 hover:text-white transition duration-300">AI Jokes</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+                </nav>
+                 <div class="md:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">About</a>
+            <a href="#experience" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Experience</a>
+            <a href="#education" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Education</a>
+            <a href="#ai-joke-generator" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">AI Jokes</a>
+            <a href="#contact" class="block py-2 px-6 text-sm text-gray-300 hover:bg-gray-800">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <div class="container mx-auto px-6">
+
+            <!-- Hero Section -->
+            <section id="hero" class="min-h-[60vh] flex items-center">
+                <div class="max-w-3xl">
+                    <h1 class="text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
+                        <span class="brand-gradient">IAM Engineer</span>
+                    </h1>
+                    <p class="mt-4 text-lg text-gray-400">
+                        Designing and deploying secure, automated, and seamless identity and access solutions for the modern workforce and customer base.
+                    </p>
+                    <div class="mt-8 flex gap-4">
+                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">Get In Touch</a>
+                        <a href="https://www.linkedin.com/in/ediomo-mbosowo-b04993205/" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">View LinkedIn</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About / Skills Section -->
+            <section id="about" class="py-20 section">
+                <h2 class="text-4xl font-bold mb-2">About Me</h2>
+                <p class="text-blue-400 mb-8">My Expertise</p>
+                <div class="glass-card p-8">
+                    <p class="text-lg leading-relaxed text-gray-300" id="about-text">
+                        My expertise spans the full stack of Identity and Access Management. I design and deploy secure solutions for both customers and the workforce across hybrid systems. I use Okta Workflows to automate everything from provisioning and governance (IGA) to business logic, ensuring seamless and compliant access.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="py-20 section">
+                <h2 class="text-4xl font-bold mb-2">Professional Experience</h2>
+                <p class="text-blue-400 mb-12">Where I've Made an Impact</p>
+                <div class="space-y-12" id="experience-container">
+                    <!-- Experience Item 1 -->
+                    <div class="glass-card p-8 transform hover:scale-105 transition-transform duration-300">
+                        <div class="flex justify-between items-start flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">Lead Customer Identity & Access Management (CIAM) Consultant</h3>
+                                <p class="text-lg text-blue-400">Proactive Risk</p>
+                            </div>
+                            <p class="text-gray-400 text-right whitespace-nowrap">April 2025 - Present</p>
+                        </div>
+                        <p class="mt-4 text-gray-300 experience-desc">
+                            Led the analysis that targeted the usage of approximately 2.42 million Monthly Active Users per month to identify unused or underused premium features and provided actionable recommendations to consolidate or downgrade Okta licenses, ensuring feature usage aligns with business needs and delivering potential cost savings.
+                        </p>
+                        <div class="mt-4 text-right">
+                            <button class="elaborate-btn bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 text-sm">✨ Elaborate with AI</button>
+                        </div>
+                        <div class="elaboration-output mt-4 p-4 bg-gray-800/50 rounded-lg text-gray-300 hidden"></div>
+                    </div>
+                    <!-- Experience Item 2 -->
+                    <div class="glass-card p-8 transform hover:scale-105 transition-transform duration-300">
+                        <div class="flex justify-between items-start flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">Service Desk Analyst</h3>
+                                <p class="text-lg text-blue-400">Netrio</p>
+                            </div>
+                            <p class="text-gray-400 text-right whitespace-nowrap">August 2025 - Present</p>
+                        </div>
+                        <p class="mt-4 text-gray-300 experience-desc">
+                            Managed daily technical support for a portfolio of MSP clients, consistently diagnosing and resolving incidents across Cloud (AWS, Azure, GCP) and on-premises VMware environments. I administered the full user lifecycle by provisioning accounts and managing permissions across diverse identity platforms, including Active Directory, Google Cloud Platform, Okta, and CyberArk. Additionally, I provided specialized troubleshooting for applications like Epic EMR and resolved secure connectivity issues across a wide variety of enterprise VPNs such as Palo Alto GlobalProtect, Fortinet FortiClient, and Cisco AnyConnect.
+                        </p>
+                         <div class="mt-4 text-right">
+                            <button class="elaborate-btn bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 text-sm">✨ Elaborate with AI</button>
+                        </div>
+                        <div class="elaboration-output mt-4 p-4 bg-gray-800/50 rounded-lg text-gray-300 hidden"></div>
+                    </div>
+                    <!-- Experience Item 3 -->
+                    <div class="glass-card p-8 transform hover:scale-105 transition-transform duration-300">
+                        <div class="flex justify-between items-start flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-2xl font-semibold text-white">Solutions Engineer - Cloud</h3>
+                                <p class="text-lg text-blue-400">Hitachi Vantara Manufacturing, Inc</p>
+                            </div>
+                            <p class="text-gray-400 text-right whitespace-nowrap">Dec 2024 - Aug 2025</p>
+                        </div>
+                        <p class="mt-4 text-gray-300 experience-desc">
+                            Administered security requirements into Okta while managing user accounts and access policies across Azure and Okta environments for 25,000+ user identities and computer accounts in the EMEA and Americas regions.
+                        </p>
+                         <div class="mt-4 text-right">
+                            <button class="elaborate-btn bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 text-sm">✨ Elaborate with AI</button>
+                        </div>
+                        <div class="elaboration-output mt-4 p-4 bg-gray-800/50 rounded-lg text-gray-300 hidden"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="py-20 section">
+                <h2 class="text-4xl font-bold mb-2">Education</h2>
+                <p class="text-blue-400 mb-12">My Academic Background</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                     <!-- Education Item 1 -->
+                    <div class="glass-card p-8">
+                        <h3 class="text-2xl font-semibold text-white">Master of Science in Cybersecurity and Information Assurance</h3>
+                        <p class="text-lg text-blue-400 mt-1">Western Governors University</p>
+                        <p class="text-gray-400 mt-2">August 2025 - Present</p>
+                        <p class="mt-4 text-gray-300">
+                            Advanced Network Security, Security Operations and Analytics, Digital Forensics, Risk Management Framework, and developing Security Architecture for modern cloud environments.
+                        </p>
+                    </div>
+                     <!-- Education Item 2 -->
+                    <div class="glass-card p-8">
+                        <h3 class="text-2xl font-semibold text-white">Bachelor of Science in Cybersecurity and Information Assurance</h3>
+                        <p class="text-lg text-blue-400 mt-1">Western Governors University</p>
+                        <p class="text-gray-400 mt-2">August 2021 - May 2025</p>
+                        <p class="mt-4 text-gray-300">
+                             Built a foundational mastery of enterprise security domains, specializing in Secure Network Architecture, Risk Management, and Cloud Security principles.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Joke Section -->
+            <section id="ai-joke-generator" class="py-20 section">
+                <h2 class="text-4xl font-bold mb-2 text-center">Need a Tech Humor Break?</h2>
+                <p class="text-blue-400 mb-8 max-w-2xl mx-auto text-center">
+                    As an expert in securing complex systems, I also believe in debugging with a good laugh. Click the button below for an AI-generated IT joke.
+                </p>
+                <div class="glass-card p-8 max-w-md mx-auto text-center">
+                    <button id="generate-joke-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 text-lg">
+                       😂 Tell Me a Joke
+                    </button>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-20 section text-center">
+                 <h2 class="text-4xl font-bold mb-2">Get In Touch</h2>
+                 <p class="text-blue-400 mb-8 max-w-xl mx-auto">I'm always open to discussing new opportunities, projects, or just to chat about Identity and Access Management. Feel free to reach out!</p>
+                 <div class="mt-8 flex justify-center items-center flex-wrap gap-8">
+                    <a href="mailto:embosowo@me.com" class="text-gray-300 hover:text-white transition duration-300 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        embosowo@me.com
+                    </a>
+                     <a href="https://www.linkedin.com/in/ediomo-mbosowo-b04993205/" target="_blank" class="text-gray-300 hover:text-white transition duration-300 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://www.canva.com/design/DAGzuNgszuQ/u-otpwFX6WS1u05Ph1nVWw/view?utm_content=DAGzuNgszuQ&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h99fe6a7319" target="_blank" class="text-gray-300 hover:text-white transition duration-300 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-image"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><circle cx="10" cy="8" r="2"/><path d="m20 13.7-2.1-2.1c-.8-.8-2-.8-2.8 0L9.7 17"/></svg>
+                        Canva Portfolio
+                    </a>
+                 </div>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 mt-20">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>&copy; <span id="year"></span> Ediomo Mbosowo. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AI Modal -->
+    <div id="ai-modal" class="fixed inset-0 z-50 items-center justify-center hidden">
+      <div class="modal-backdrop fixed inset-0"></div>
+      <div class="glass-card relative w-full max-w-xl max-h-[90vh] p-8 rounded-2xl m-4 flex flex-col">
+        <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl leading-none">&times;</button>
+        <h2 id="modal-title" class="text-2xl font-bold mb-4 text-white text-center">Here's a Good One...</h2>
+        <div id="modal-content" class="flex-grow overflow-y-auto pr-4 text-gray-300 flex items-center justify-center">
+            <!-- Loading spinner or joke content appears here -->
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+        // --- START: Gemini API Integration ---
+
+        // Function to call the Gemini API
+        async function callGeminiAPI(prompt, retries = 3, delay = 1000) {
+            const apiKey = ""; // API key is handled by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    if (response.status === 429 && retries > 0) { // Throttling
+                        await new Promise(res => setTimeout(res, delay));
+                        return callGeminiAPI(prompt, retries - 1, delay * 2);
+                    }
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+                
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    return candidate.content.parts[0].text;
+                } else {
+                    return "Sorry, the AI is fresh out of jokes. Please try again.";
+                }
+
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                if (retries > 0) {
+                    await new Promise(res => setTimeout(res, delay));
+                    return callGeminiAPI(prompt, retries - 1, delay * 2);
+                }
+                return "An error occurred while contacting the AI assistant. Please try again later.";
+            }
+        }
+
+        // Feature 1: Elaborate on Experience
+        const elaborateBtns = document.querySelectorAll('.elaborate-btn');
+        elaborateBtns.forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                const card = e.target.closest('.glass-card');
+                const outputDiv = card.querySelector('.elaboration-output');
+                const experienceText = card.querySelector('.experience-desc').textContent.trim();
+                
+                outputDiv.classList.remove('hidden');
+                outputDiv.innerHTML = '<div class="flex justify-center items-center"><div class="loader"></div></div>';
+
+                const prompt = `You are a career coach helping an Identity and Access Management (IAM) Engineer showcase their experience. Elaborate on the following accomplishment from their resume in 2-3 professional sentences. Focus on the impact, technologies used, and challenges overcome without adding information that contradicts the original statement. Here is the accomplishment: "${experienceText}"`;
+
+                const result = await callGeminiAPI(prompt);
+                outputDiv.innerHTML = result;
+            });
+        });
+        
+        // Feature 2: AI Joke Generator
+        const generateJokeBtn = document.getElementById('generate-joke-btn');
+        const modal = document.getElementById('ai-modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalTitle = document.getElementById('modal-title');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        generateJokeBtn.addEventListener('click', async () => {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            modalTitle.textContent = "Generating Joke...";
+            modalContent.innerHTML = '<div class="flex justify-center items-center h-32"><div class="loader"></div></div>';
+
+            const prompt = `Please generate one funny, modern, and clever IT or cybersecurity joke. It should be safe-for-work and understandable to someone in the tech industry. For example, a joke about authentication, cloud computing, firewalls, or developers. Please provide only the joke text itself, without any introduction like "Here is a joke:".`;
+
+            const result = await callGeminiAPI(prompt);
+            modalTitle.textContent = "Here's a Good One...";
+            modalContent.innerHTML = `<p class="text-xl text-center leading-relaxed">${result}</p>`;
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        });
+        
+        // --- END: Gemini API Integration ---
+
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
