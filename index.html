@@ -126,10 +126,6 @@
                         <p class="mt-4 text-gray-300 experience-desc">
                             Led the analysis that targeted the usage of approximately 2.42 million Monthly Active Users per month to identify unused or underused premium features and provided actionable recommendations to consolidate or downgrade Okta licenses, ensuring feature usage aligns with business needs and delivering potential cost savings.
                         </p>
-                        <div class="mt-4 text-right">
-                            <button class="elaborate-btn bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 text-sm">✨ Elaborate with AI</button>
-                        </div>
-                        <div class="elaboration-output mt-4 p-4 bg-gray-800/50 rounded-lg text-gray-300 hidden"></div>
                     </div>
                     <!-- Experience Item 2 -->
                     <div class="glass-card p-8 transform hover:scale-105 transition-transform duration-300">
@@ -143,10 +139,6 @@
                         <p class="mt-4 text-gray-300 experience-desc">
                             Managed daily technical support for a portfolio of MSP clients, consistently diagnosing and resolving incidents across Cloud (AWS, Azure, GCP) and on-premises VMware environments. I administered the full user lifecycle by provisioning accounts and managing permissions across diverse identity platforms, including Active Directory, Google Cloud Platform, Okta, and CyberArk. Additionally, I provided specialized troubleshooting for applications like Epic EMR and resolved secure connectivity issues across a wide variety of enterprise VPNs such as Palo Alto GlobalProtect, Fortinet FortiClient, and Cisco AnyConnect.
                         </p>
-                         <div class="mt-4 text-right">
-                            <button class="elaborate-btn bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 text-sm">✨ Elaborate with AI</button>
-                        </div>
-                        <div class="elaboration-output mt-4 p-4 bg-gray-800/50 rounded-lg text-gray-300 hidden"></div>
                     </div>
                     <!-- Experience Item 3 -->
                     <div class="glass-card p-8 transform hover:scale-105 transition-transform duration-300">
@@ -160,10 +152,6 @@
                         <p class="mt-4 text-gray-300 experience-desc">
                             Administered security requirements into Okta while managing user accounts and access policies across Azure and Okta environments for 25,000+ user identities and computer accounts in the EMEA and Americas regions.
                         </p>
-                         <div class="mt-4 text-right">
-                            <button class="elaborate-btn bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 text-sm">✨ Elaborate with AI</button>
-                        </div>
-                        <div class="elaboration-output mt-4 p-4 bg-gray-800/50 rounded-lg text-gray-300 hidden"></div>
                     </div>
                 </div>
             </section>
@@ -254,7 +242,16 @@
 
         // Function to call the Gemini API
         async function callGeminiAPI(prompt, retries = 3, delay = 1000) {
-            const apiKey = ""; // API key is handled by the environment
+            // IMPORTANT: For the AI Joke feature to work on your live GitHub Pages site,
+            // you must get a free Gemini API key from Google AI Studio and paste it here.
+            // WARNING: This key will be visible to anyone who views your site's source code.
+            // For a personal portfolio, this is a low risk, but do not use this key for other projects.
+            const apiKey = "AIzaSyBC3T5fo53YupgByrz6Y09o8map8H5YYFY"; // <-- PASTE YOUR KEY HERE
+
+            if (apiKey === "PASTE_YOUR_GEMINI_API_KEY_HERE" || !apiKey) {
+                 return "AI feature is not configured. The site owner needs to add an API key.";
+            }
+
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
             const payload = {
@@ -294,26 +291,8 @@
                 return "An error occurred while contacting the AI assistant. Please try again later.";
             }
         }
-
-        // Feature 1: Elaborate on Experience
-        const elaborateBtns = document.querySelectorAll('.elaborate-btn');
-        elaborateBtns.forEach(btn => {
-            btn.addEventListener('click', async (e) => {
-                const card = e.target.closest('.glass-card');
-                const outputDiv = card.querySelector('.elaboration-output');
-                const experienceText = card.querySelector('.experience-desc').textContent.trim();
-                
-                outputDiv.classList.remove('hidden');
-                outputDiv.innerHTML = '<div class="flex justify-center items-center"><div class="loader"></div></div>';
-
-                const prompt = `You are a career coach helping an Identity and Access Management (IAM) Engineer showcase their experience. Elaborate on the following accomplishment from their resume in 2-3 professional sentences. Focus on the impact, technologies used, and challenges overcome without adding information that contradicts the original statement. Here is the accomplishment: "${experienceText}"`;
-
-                const result = await callGeminiAPI(prompt);
-                outputDiv.innerHTML = result;
-            });
-        });
         
-        // Feature 2: AI Joke Generator
+        // AI Joke Generator
         const generateJokeBtn = document.getElementById('generate-joke-btn');
         const modal = document.getElementById('ai-modal');
         const modalContent = document.getElementById('modal-content');
@@ -361,5 +340,7 @@
     </script>
 </body>
 </html>
+
+
 
 
